@@ -36,7 +36,11 @@ services:
       db:
         condition: service_healthy
     healthcheck:
-      test: [ "CMD-SHELL", "wget --no-verbose --tries=1 http://localhost:4000/health/liveliness || exit 1" ]
+      test:
+        [
+          "CMD-SHELL",
+          "wget --no-verbose --tries=1 http://localhost:4000/health/liveliness || exit 1",
+        ]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -87,6 +91,29 @@ configs:
         - job_name: "litellm"
           static_configs:
             - targets: ["litellm:4000"]
+
+  # nginx:
+  #   image: nginx:stable
+  #   container_name: nginx
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./nginx/conf.d:/etc/nginx/conf.d
+  #     - ./nginx/certs:/etc/letsencrypt
+  #     - ./nginx/www:/var/www/certbot
+  #   depends_on:
+  #     - openwebui
+  #   restart: always
+
+  # certbot:
+  #   image: certbot/certbot
+  #   container_name: certbot
+  #   volumes:
+  #     - ./nginx/certs:/etc/letsencrypt
+  #     - ./nginx/www:/var/www/certbot
+  #   entrypoint: sh
+  #   command: -c "trap exit TERM; while :; do certbot renew --quiet; sleep 12h; done"
 
 volumes:
   postgres_data:
