@@ -18,7 +18,7 @@ Follow the official Docker installation guides:
 
 - [Install Docker Engine](https://docs.docker.com/engine/install/)
 - [Install Docker Compose Plugin](https://docs.docker.com/compose/install/)
-- [Install Docker Compose Plugin From Repository]("https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository")
+- [Install Docker Compose Plugin From Repository](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 
 After installation, verify:
 
