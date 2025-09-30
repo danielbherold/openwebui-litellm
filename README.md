@@ -9,7 +9,18 @@ The project provides a single Docker Compose file for running the following stac
 - Prometheus
 - Nginx
 
+## Quick Start (Insecure)
+```bash
+sudo git clone https://github.com/danielbherold/openwebui-litellm.git
+cd openwebui-litellm
+mv .env.example .env
+source .env
+docker compose up -d
+```
+- **Open WebUI:** [http://localhost:3000](http://localhost:3000)
+- **LiteLLM API:** [http://localhost:4000](http://localhost:4000)
 ----
+
 # Deployment
 
 ## 1. Install Docker & Docker Compose
@@ -20,13 +31,6 @@ Follow the official Docker installation guides:
 - [Install Docker Compose Plugin](https://docs.docker.com/compose/install/)
 - [Install Docker Compose Plugin From Repository](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 
-After installation, verify:
-
-```bash
-docker --version
-docker compose version
-```
-
 ## 2. Clone the Repository
 ```bash
 sudo git clone https://github.com/danielbherold/openwebui-litellm.git
@@ -36,12 +40,13 @@ cd openwebui-litellm
 ----
 ## 3. Configure Environment Variables
 
-Create a `.env` file in the repo root. An example may be found in the .env.example file.
+Create a `.env` file in the repo root. An example may be found in the `.env.example` file.
 
 ## 4. Run Services
 
 Spin up everything in the background:
 ```bash
+source .env
 docker compose up -d
 ```
 
